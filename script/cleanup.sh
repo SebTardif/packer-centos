@@ -40,6 +40,14 @@ for ndev in `ls -1 /etc/sysconfig/network-scripts/ifcfg-*`; do
 done
 rm -rf /dev/.udev/
 
+cat > /etc/sysconfig/network-scripts/ifcfg-eth0 << EOF
+DEVICE="eth0"
+BOOTPROTO="dhcp"
+ONBOOT="yes"
+TYPE="Ethernet"
+PERSISTENT_DHCLIENT="yes"
+EOF
+
 DISK_USAGE_BEFORE_CLEANUP=$(df -h)
 
 if [[ $CLEANUP_BUILD_TOOLS  =~ true || $CLEANUP_BUILD_TOOLS =~ 1 || $CLEANUP_BUILD_TOOLS =~ yes ]]; then
