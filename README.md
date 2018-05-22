@@ -2,11 +2,7 @@
 
 ### Overview
 
-This repository contains Packer templates for creating CentOS Vagrant boxes.
-
-## Current Boxes
-
-We no longer provide pre-built binaries for these templates.
+This repository contains Packer templates for creating CentOS Vagrant boxes.  It's a fork of the [Boxcutter/CentOS] repo with some small amount of customisation.
 
 ## Building the Vagrant boxes with Packer
 
@@ -31,6 +27,10 @@ If you want to make boxes for a specific desktop virtualization platform, use th
 parameter.  For example, to build CentOS 7 for VirtualBox:
 
     $ packer build -only=virtualbox-iso -var-file=centos7.json centos.json
+
+Or to build for VMware-based hypervisors:
+
+    $ packer build -only=vmware-iso -var-file=centos7.json centos.json
 
 The boxcutter templates currently support the following desktop virtualization strings:
 
@@ -111,17 +111,6 @@ Upon logout `make ssh-*` will automatically de-register the box as well.
 8. Push to your fork and submit a pull request.
 9. Once submitted, a full `make test` run will be performed against your change in the build farm.  You will be notified if the test suite fails.
 
-### Would you like to help out more?
-
-Contact moujan@annawake.com
-
 ### Acknowledgments
 
-[Parallels](http://www.parallels.com/) provided a Business Edition license of
-their software to run on the basebox build farm.
-
-<img src="http://www.parallels.com/fileadmin/images/corporate/brand-assets/images/logo-knockout-on-red.jpg" width="80">
-
-[SmartyStreets](http://www.smartystreets.com) provided basebox hosting for the boxcutter project since 2015 - thank you for your support!
-
-<img src="https://d79i1fxsrar4t.cloudfront.net/images/brand/smartystreets.65887aa3.png" width="320">
+Thanks to upstream contributors to the [Boxcutter](https://github.com/boxcutter) repositories.
