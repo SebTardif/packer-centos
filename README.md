@@ -28,6 +28,10 @@ parameter.  For example, to build CentOS 7 for VirtualBox:
 
     $ packer build -only=virtualbox-iso -var-file=centos7.json centos.json
 
+To perform a 'headless' VirtualBox build:
+
+    $ packer build -var 'headless=true' -only=virtualbox-iso -var-file=centos7.json centos.json
+
 Or to build for VMware-based hypervisors:
 
     $ packer build -only=vmware-iso -var-file=centos7.json centos.json
